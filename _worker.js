@@ -1517,3 +1517,7 @@ function nthIndex(str, pat, n) {
   }
   return i;
 }
+
+export default {
+  fetch: handleRequest
+};
