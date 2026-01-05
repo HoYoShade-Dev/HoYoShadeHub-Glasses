@@ -1519,5 +1519,10 @@ function nthIndex(str, pat, n) {
 }
 
 export default {
-  fetch: handleRequest
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    thisProxyServerUrlHttps = `${url.protocol}//${url.hostname}/`;
+    thisProxyServerUrl_hostOnly = url.host;
+    return handleRequest(request);
+  }
 };
