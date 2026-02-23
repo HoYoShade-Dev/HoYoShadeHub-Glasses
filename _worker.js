@@ -958,6 +958,12 @@ async function handleRequest(request) {
   if (request.url.endsWith("favicon.ico")) {
     return getRedirect("https://www.wto.org/favicon.ico");
   }
+  if (url.pathname === "/success.html" || url.pathname === "/success.html/") {
+    return new Response("Success", {
+      status: 200, 
+      headers: { "Content-Type": "text/html; charset=utf-8" }
+    });
+  }
   if (request.url.endsWith("robots.txt")) {
     return new Response(`User-Agent: *
   Disallow: /`, {
